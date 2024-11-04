@@ -90,8 +90,9 @@ menu:
     "A blue book with a bubbly textured cove":
         jump story_two
 
-    # "A red book with leaf printed on the cover"
-    #     jump story_three
+    "A red book with leaf printed on the cover":
+        jump story_three
+
 # Story One
 label story_one:
 
@@ -343,7 +344,7 @@ label trying_cake:
 
             jump n_ending
 
-label rice_cake_great
+label rice_cake_great:
 
     "I know right!!! It even gives you immortality!! Isn't that wonderful!" 
 
@@ -396,6 +397,151 @@ label rice_cake_great
                     "The book loses it's shimmer and luster"
 
                     jump moonhare_ending_good
+
+# Story Three
+label story_three: 
+
+    "You open the book and a light flashes from the book."
+
+    "A strange beast pops out of the book."
+
+    "You hear a skip sound and 4 legs touch the ground and a white fox seemingly appears out of nowhere."
+
+    u "Are you the loathesome human who called me?"
+
+    menu: 
+
+        "Loathesome?!":
+
+            u "I mean what I said"
+
+            menu: 
+
+                "Who are you?":
+                    jump tiangou_who
+
+        "Yeah...?":
+
+            u "Rightfully so I guess"
+
+            menu:
+
+                "Who are you?":
+                    jump tiangou_who
+
+label tiangou_who:
+
+    t "I am Tiangou, a spirit known for many things" 
+
+    t "It jeers with a sly smile"
+
+    t "what about you?"
+
+    menu: 
+
+        "I am [yn]":
+            jump tiangou_me
+
+        "...":
+            t "Not even a word?"
+
+            t "What a waste of time"
+
+            "The beast recedes back into the book without much of another word"
+
+            jump n_ending
+
+label tiangou_me: 
+
+    t "Is that all?"
+
+    t "Is there anything else? A title? nickname?"
+
+    t "Not too sure yourself, right? You just go along with what others do."
+
+    "You're not sure what brought this on but the beast is right"
+
+    "Even at your grandparents funeral it was like this."
+
+    t "Don't worry! You're still young and have a lot of time to find out."
+
+    t "How about this uncle fox help you out a bit"
+
+    "The beast gives off a little jeering smile"
+
+    t "I am known for many things."
+
+    t "To some, I'm an arbiter for protection"
+
+    t "... to others I eat away at their light, their sun."
+
+    "The wolf pauses, you felt as if impending doom was fast approaching."
+
+    t "But that's a rarity these days! I'm pretty much retired these days {i}haha{/i}"
+
+    "... You give a slight sigh of relief"
+
+    t "If you need any advice, I'm all pointy ears!"
+
+    menu:
+
+        "What do you mean by protection?":
+
+            t "Simple, I just give my blessings!" 
+
+            "The wolf proudly declares"
+
+            t "... although it's placebo at best since it only prevents bad things from happening, you'd never really notice it."
+            
+            t "Your grandparents actually had my blessings" 
+
+            "!!!"
+
+            t "Did you think that they when they passed together it was simply coincidental?"
+
+            t "My blessings simply equalized their remaining life and they were content with that."
+
+            t "It's very objective. I have no hand in the results or consequences of what bad actually means."
+
+            t "Say... what do you think about receiving my blessing? Your grandparents had it."
+
+            menu: 
+
+                "Give me the blessing":
+                    jump tiangou_ending_good_two
+
+                
+                "You're too suspicious":
+                    
+                    t "Alright but if you ever change your mind let me know!"
+
+                    t "I'll... just... {i}yawn{/i} take a nap for a while"
+
+                    "The fox recedes back into the book seemingly exhausted."
+
+                    "You take a moment to comprehend what just happened but you are glad to know a little more about what happened with your grandparents."
+
+                    jump n_ending
+
+        "What does eating the sun look like?":
+
+            t "It's as you think, metaphorically and literally, although the latter I was made to spit it back out"
+
+            t "...it's not like it was tasty or anything!"
+
+            "You can see a small amount of saliva drooling from it's mouth"
+
+            t "But what I basically do is eat away the lights of peoples lives, this also works in vice versa"
+
+            t "Is that something that interests you?"
+
+            menu:
+
+                "Eat away my sun": 
+                    jump tiangou_ending_bad
+
+                "Eat away my moon":
+                    jump tiangou_ending_good_one
 
 
 # ENDINGS

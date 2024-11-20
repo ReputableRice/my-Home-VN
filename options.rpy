@@ -18,7 +18,7 @@ define config.name = _("Final Project")
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## The version of the game.
@@ -30,6 +30,11 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+A short story about a person finding 3 creatures in their grandparents house.
+
+This game was created for as a final project for my design course. Unfortunately, since I didn't have a lot of time juggling this project with my other work, the script is simple the raw script without any revisions.
+
+Despite that, I hope you enjoy!
 """)
 
 

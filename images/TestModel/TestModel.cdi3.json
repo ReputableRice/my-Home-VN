@@ -1,0 +1,90 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "ParamGroup3",
+			"Name": "EyeL Open"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "ParamGroup2",
+			"Name": "Angle Y"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "ParamGroup2",
+			"Name": "Body X"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "ParamGroup2",
+			"Name": "Body Y"
+		},
+		{
+			"Id": "Tail_1",
+			"GroupId": "ParamGroup",
+			"Name": "Tail 1"
+		},
+		{
+			"Id": "Tail_2",
+			"GroupId": "ParamGroup",
+			"Name": "Tail 2"
+		},
+		{
+			"Id": "Tail_3",
+			"GroupId": "ParamGroup",
+			"Name": "Tail 3"
+		},
+		{
+			"Id": "Tail_4",
+			"GroupId": "ParamGroup",
+			"Name": "Tail 4"
+		},
+		{
+			"Id": "Tail_5",
+			"GroupId": "ParamGroup",
+			"Name": "Tail 5"
+		},
+		{
+			"Id": "Ear_Wiggle",
+			"GroupId": "ParamGroup",
+			"Name": "Ear_Wiggle"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "Manually Controlled Parameters (For the Most Part)"
+		},
+		{
+			"Id": "ParamGroup2",
+			"GroupId": "",
+			"Name": "Parameters"
+		},
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "Physics"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Tiangou",
+			"Name": "Tiangou"
+		},
+		{
+			"Id": "Part2",
+			"Name": "Folder 1"
+		},
+		{
+			"Id": "Tail_Skinning2",
+			"Name": "Tail(Skinning)"
+		},
+		{
+			"Id": "Tail_Skinning",
+			"Name": "Tail(Skinning)"
+		}
+	]
+}

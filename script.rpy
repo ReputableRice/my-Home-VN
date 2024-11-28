@@ -3,6 +3,8 @@ define d = Character("Denglong", color="#f79640")
 define m = Character("Moon Hare", color="#23b5eb")
 define t = Character("Tiangou", color="#ddebf0")
 define u = Character("???", color="#fff")
+image tiangou = Live2D("images/TestModel", default_fade=0.0, loop=True)
+
 
 $ gui.textbox_yalign = 0.0
 
@@ -20,6 +22,9 @@ transform d_position:
     xpos 2200
 
 label start:
+
+    #all attributes and exp files need to be lower case!
+    show tiangou nodding
 
     $ You = renpy.input("What is your name?", "Yu", length=15, exclude=" 0123456789+=,.?!<>{}[]").strip() or "Badmustard"
     # yn "Hello World"

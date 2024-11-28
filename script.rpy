@@ -4,6 +4,8 @@ define m = Character("Moon Hare", color="#23b5eb")
 define t = Character("Tiangou", color="#ddebf0")
 define u = Character("???", color="#fff")
 
+$ gui.textbox_yalign = 0.0
+
 transform hare_position:
     zoom 0.8
     xpos 1000
@@ -62,35 +64,24 @@ label table:
 
     "The desk itself is quite fancy, with several intricate designs engraved in the table."
 
-menu:
+menu table_choices:
 
     "Pen":
-        jump pen
+        "A fancy fountain pen, with engravings that remind you of the house."
+
+        jump table_choices
 
     "Letter":
-        jump letter
+        "The paper has text written on it."
 
-label pen: 
+        "\"To whoever it may concern, these books are precious to me and my wife, they are mementos from our travels when we were younger. "
 
-    "A fancy fountain pen"
+        "If you spend some time reading through some of them you might find some of the contents quite interesting.\""
 
-menu:
+        jump table_choices
 
-    "return":
-        jump table
-
-label letter:
-
-    "The paper has text written on it."
-
-    "\"To whoever it may concern, these books are precious to me and my wife, they are mementos from our travels when we were younger. "
-
-    "If you spend some time reading through some of them you might find some of the contents quite interesting.\""
-
-menu:
-
-    "return":
-        jump table
+    "Go to Bookshelf":
+        jump bookshelf
 
 label bookshelf:
 

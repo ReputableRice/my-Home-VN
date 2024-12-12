@@ -155,6 +155,7 @@ style say_label:
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
+    line_spacing 0 # adjust that number as required
 
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
@@ -332,7 +333,10 @@ screen navigation():
 
 
 style navigation_button is gui_button
-style navigation_button_text is gui_button_text
+style navigation_button_text:
+    properties gui.button_text_properties("navigation_button") 
+    size 50
+    line_spacing 0
 
 style navigation_button:
     size_group "navigation"
@@ -382,7 +386,7 @@ style main_menu_title is main_menu_text
 style main_menu_version is main_menu_text
 
 style main_menu_frame:
-    xsize 420
+    xsize 400
     yfill True
 
     background "gui/overlay/main_menu.png"

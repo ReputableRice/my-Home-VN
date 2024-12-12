@@ -1,8 +1,10 @@
 ﻿define yn = Character("[You]")
 define d = Character("Denglong", color="#f79640")
 define m = Character("Moon Hare", color="#23b5eb")
-define t = Character("Tiangou", color="#ddebf0")
+define t = Character("Tiangou", color="#ddebf0", image='tiangou')
 define u = Character("???", color="#fff")
+# image tiangou = Live2D("images/tiangou", default_fade=0.0, loop=True)
+
 
 $ gui.textbox_yalign = 0.0
 
@@ -19,7 +21,14 @@ transform d_position:
     ypos 1500
     xpos 2200
 
+transform item_position: 
+    zoom 0.3
+    xpos 500
+
 label start:
+
+    #all attributes and exp files need to be lower case!
+    # show tiangou shadow
 
     $ You = renpy.input("What is your name?", "Yu", length=15, exclude=" 0123456789+=,.?!<>{}[]").strip() or "Badmustard"
     # yn "Hello World"
@@ -52,6 +61,9 @@ label start:
 
     "Which one to look at?"
 
+    scene study:
+        blur 16
+
 menu:
 
     "Table":
@@ -67,16 +79,24 @@ label table:
 menu table_choices:
 
     "Pen":
+        show pen at item_position
+
         "A fancy fountain pen, with engravings that remind you of the house."
+
+        hide pen
 
         jump table_choices
 
     "Letter":
+        show paper at item_position
+
         "The paper has text written on it."
 
         "\"To whoever it may concern, these books are precious to me and my wife, they are mementos from our travels when we were younger. "
 
         "If you spend some time reading through some of them you might find some of the contents quite interesting.\""
+
+        hide paper
 
         jump table_choices
 
@@ -102,6 +122,8 @@ menu:
 
 # Story One
 label story_one:
+    scene study:
+        blur 16
 
     "You open the book and a light flashes from the book."
     
@@ -328,6 +350,8 @@ label denglong_okay:
                     jump denglong_ending
 
 label story_two: 
+    scene study:
+        blur 16
 
     "You open the book and a light flashes from the book."
 
@@ -335,7 +359,7 @@ label story_two:
 
     "Landing with a light hop, a small rabbit bounces and makes it's personality quite apparent."
 
-    show h-silouhette at hare_position
+    show hare silouhette at hare_position
     with fade
 
     u "Yo! You the one who called?"
@@ -352,11 +376,11 @@ label yeah_exclamation:
 
     m "I like your energy, I'm known as a Moon Hare, a {i}*very*{/i} kind and *very* helpful servant of the Moon Goddess."
 
-    show h-Default at hare_position
+    show hare default at hare_position
 
     "A little perplexed at the situation of a speaking rabbit, you try to maintain your composure."
 
-    show h-excited at hare_position
+    show hare excited at hare_position
 
     m "I'm responsible for making rice cakes for the goddess, and I make mean one, care to try one?"
 
@@ -373,7 +397,7 @@ label yeah_exclamation:
             
             "The rabbit is saddened by your refusal, drooping it's ears down visibly."
 
-            show h-sad at hare_position
+            show hare sad at hare_position
 
             m "I guess this was a waste of time... not even a mortal wants my rice cake {i}sob{/i}"
 
@@ -383,7 +407,7 @@ label yeah_exclamation:
 
 label trying_cake:
 
-    show h-Default at hare_position
+    show hare default at hare_position
 
     "You take a bite..."
 
@@ -407,13 +431,13 @@ label trying_cake:
             
             "The rabbit is instantly dejected and it's ears droop down in a sad twist of fate."
 
-            show h-sad at hare_position
+            show hare sad at hare_position
 
             m "Is that so..."
 
             "You feel a little bad, but it was your honest opinion..."
 
-            show h-default at hare_position
+            show hare default at hare_position
 
             m "I guess I'll have to work harder! I'll catch you later and come back with an even better cake! In maybe 50 or so years!"
 
@@ -427,7 +451,7 @@ label rice_cake_great:
 
     "I know right!!! It even gives you immortality!! Isn't that wonderful!" 
 
-    show h-snicker at hare_position
+    show hare snicker at hare_position
 
     "The rabbit gives a sly sneer"
 
@@ -435,7 +459,7 @@ label rice_cake_great:
 
         "It gives me what?!":
 
-            show h-excited at hare_position
+            show hare excited at hare_position
 
             m "I'm just kidding!"
 
@@ -443,11 +467,11 @@ label rice_cake_great:
 
             yn "(This rabbit is tiresome)"
 
-            show h-default at hare_position
+            show hare default at hare_position
 
             m "Immortality isn't something I can give out just like that."
 
-            show h-happy at hare_position
+            show hare excited at hare_position
 
             m "So I just gave you my personal ones I made to eat"
 
@@ -467,13 +491,13 @@ label rice_cake_great:
 
                 "Then what about you?": 
 
-                    show h-default at hare_position
+                    show hare default at hare_position
                     
                     m "Like I said, I serve the Moon Goddess, I'll probably be doing that for a long time to come {i}hehe{/i}"
 
                     m "My immortality gives the ability to do that so I'm content with where my life is now!"
 
-                    show h-sleepy at hare_position
+                    show hare sleepy at hare_position
 
                     m "{i}yawn{/i}"
 
@@ -498,7 +522,7 @@ label story_three:
 
     "You hear a skip sound and 4 legs touch the ground and a white fox seemingly appears out of nowhere."
 
-    show t-shaded at t-position
+    show tiangou shadow at t_position
     with fade
 
     u "Are you the loathesome human who called me?"
@@ -525,13 +549,11 @@ label story_three:
 
 label tiangou_who:
 
-    show t-default at t-position
-    with fade
+    show tiangou default at t_position
 
     t "I am Tiangou, a spirit known for many things" 
 
-    show t-snicker at t-position
-    with fade
+    show tiangou snicker at t_position
 
     t "It jeers with a sly smile"
 
@@ -545,8 +567,7 @@ label tiangou_who:
         "...":
             t "Not even a word?"
 
-            show t-frown at t-position
-            with fade
+            show tiangou frown at t_position
 
             t "What a waste of time"
 
@@ -556,8 +577,8 @@ label tiangou_who:
 
 label tiangou_me: 
 
-    show t-closed at t-position
-    with fade
+    show tiangou close at t_position
+    pause 1
 
     t "Is that all?"
 
@@ -573,8 +594,7 @@ label tiangou_me:
 
     t "How about this uncle fox help you out a bit"
 
-    show t-snicker at t-position
-    with fade
+    show tiangou snicker at t_position
 
     "The beast gives off a little jeering smile"
 
@@ -586,8 +606,7 @@ label tiangou_me:
 
     "The wolf pauses, you felt as if impending doom was fast approaching."
 
-    show t-closed at t-position
-    with fade
+    show tiangou close at t_position
 
     t "But that's a rarity these days! I'm pretty much retired these days {i}haha{/i}"
 
@@ -599,26 +618,23 @@ label tiangou_me:
 
         "What do you mean by protection?":
             
-            show t-default at t-position
-            with fade
+            show tiangou default at t_position
 
             t "Simple, I just give my blessings!" 
 
-            show t-sneer at t-position
-            with fade
+            show tiangou snicker at t_position
 
             "The wolf proudly declares"
 
             t "... although it's placebo at best since it only prevents bad things from happening, you'd never really notice it."
 
-            show t-closed at t-position
-            with fade
+            show tiangou close at t_position
 
             t "Your grandparents actually had my blessings" 
 
             "!!!"
             
-            show t-default at t-position
+            show tiangou default at t_position
             with fade
 
             t "Did you think that they when they passed together it was simply coincidental?"
@@ -639,8 +655,7 @@ label tiangou_me:
                     
                     t "Alright but if you ever change your mind let me know!"
 
-                    show t-sleepy at t-position
-                    with fade   
+                    show tiangou sleep at t_position
 
                     t "I'll... just... {i}yawn{/i} take a nap for a while"
 
@@ -648,21 +663,17 @@ label tiangou_me:
 
                     "You take a moment to comprehend what just happened but you are glad to know a little more about what happened with your grandparents."
 
-                    hide t-sleepy with fade
-
                     jump n_ending
 
         "What does eating the sun look like?":
 
-            show t-default at t-position
-            with fade   
+            show tiangou default at t_position
 
             t "It's as you think, metaphorically and literally, although the latter I was made to spit it back out"
 
             t "...it's not like it was tasty or anything!"
 
-            show t-sneer at t-position
-            with fade   
+            show tiangou snicker at t_position
 
             "You can see a small amount of saliva drooling from it's mouth"
 
@@ -751,6 +762,7 @@ label tiangou_ending_good_one:
 label tiangou_ending_good_two: 
 
     scene tmoon with fade
+    pause 1
 
     t "Alright! You have my blessing!"
 
@@ -791,6 +803,7 @@ label tiangou_ending_good_two:
 label tiangou_ending_bad: 
 
     scene tsun with fade
+    pause 1
 
     scene night with fade
 
